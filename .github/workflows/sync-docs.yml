@@ -25,8 +25,8 @@ jobs:
           mkdir -p docs
 
           # Copy docs if the folder exists in rali
-          if [ -d "rali/docs" ]; then
-            cp -r rali/docs/* docs/
+          if [ -d "rali/doc" ]; then
+            cp -r rali/doc/* docs/
           else
             echo "No docs folder found in rali, skipping."
           fi
