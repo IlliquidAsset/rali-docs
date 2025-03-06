@@ -13,14 +13,14 @@ jobs:
       - name: Checkout rali-docs
         uses: actions/checkout@v3
 
-      - name: Clone Private Repo
+      - name: Clone Private Repo Using PAT
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GH_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          git clone https://github.com/IlliquidAsset/rali.git --depth 1
-          cp -r rali/docs/* docs/  # Copy all docs
+          git clone https://$GH_PAT@github.com/IlliquidAsset/rali.git --depth 1
+          cp -r rali/docs/* docs/
           cp rali/README.md README.md  # Sync ReadMe
-          rm -rf rali  # Cleanup after copying
+          rm -rf rali  # Cleanup
 
       - name: Commit Changes
         run: |
