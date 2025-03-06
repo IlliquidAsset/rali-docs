@@ -13,11 +13,13 @@ jobs:
       - name: Checkout rali-docs
         uses: actions/checkout@v3
 
-      - name: Clone Private Repo Using PAT
-        env:
-          GH_PAT: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Authenticate with GitHub Token
         run: |
-          git clone https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/IlliquidAsset/rali.git --depth 1
+          git config --global url."https://github:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Clone Private Repo Using PAT
+        run: |
+          git clone https://github.com/IlliquidAsset/rali.git --depth 1
           
           # Ensure docs folder exists before copying
           mkdir -p docs
