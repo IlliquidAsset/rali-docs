@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="rali API docs, for the Dart programming language.">
+  <title>rali - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">rali package</li>
+  </ol>
+  <div class="self-name">rali</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="rali">RALI</h1>
+<p><img src="logo-300px.png" alt="RALI Logo"></p>
+<h1 id="rali-revolutionizing-navigation-and-group-coordination">RALI: Revolutionizing Navigation and Group Coordination</h1>
+<p>Imagine this: A group of supercar enthusiasts set off from three different cities—Nashville, Atlanta, and Charlotte. Their destination? The legendary Tail of the Dragon, an 11-mile stretch of road boasting 318 curves and unmatched driving thrills. From light traffic concerns to unexpected weather delays and even dead zones with no cell signal, each group faces its own unique challenges. Yet, they all have one goal: to meet at the same time and make the most of their driving experience.</p>
+<p>This is where the problem begins.</p>
+<h2 id="the-challenge">The Challenge</h2>
+<ul>
+<li><strong>Dynamic Traffic Conditions:</strong> The Nashville group must navigate light traffic, which intensifies as they approach the destination.</li>
+<li><strong>Unpredictable Weather:</strong> The Atlanta group encounters rain delays and mountainous areas with no cell coverage.</li>
+<li><strong>Coordination Across Groups:</strong> The Charlotte group is delay-free but needs to synchronize their arrival with the others.</li>
+<li><strong>Telemetry and Social Sharing:</strong> All drivers want to log and share their car telemetry data while keeping their focus on the road.</li>
+<li><strong>Display Flexibility:</strong> They need seamless switching between navigation and performance metrics, tailored to their in-car systems like Apple CarPlay and Android Auto.</li>
+</ul>
+<h2 id="enter-rali-the-all-in-one-driving-companion">Enter RALI: The All-in-One Driving Companion</h2>
+<p>RALI doesn't just solve these problems—it redefines the driving experience. Built from the ground up with cutting-edge AI and real-time data integration, RALI is the ultimate tool for driving enthusiasts.</p>
+<h3 id="what-rali-delivers">What RALI Delivers</h3>
+<ol>
+<li>
+<p><strong>Dynamic Route Guidance:</strong></p>
+<ul>
+<li>Real-time traffic updates ensure the Nashville group stays ahead of congestion.</li>
+<li>Weather-aware routing predicts rain delays for the Atlanta group, providing safe and efficient alternatives.</li>
+<li>Offline functionality ensures continuous navigation even in dead zones.</li>
+</ul>
+</li>
+<li>
+<p><strong>Synchronized Arrival:</strong></p>
+<ul>
+<li>Shared waypoints and predictive arrival times keep all groups on the same schedule.</li>
+<li>Smart adjustments based on speed, delays, and terrain ensure perfect synchronization.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrated Telemetry:</strong></p>
+<ul>
+<li>Real-time data from OBD-II readers and phone accelerometers is displayed seamlessly.</li>
+<li>Data is logged locally and online for post-drive analysis and group comparison.</li>
+</ul>
+</li>
+</ol>
+<h2 id="project-structure">Project Structure</h2>
+<pre class="language-dart"><code>lib/
+├── config/                  # Configuration files
+├── screens/                # UI screens and controllers
+├── services/              # Core services
+│   ├── api/              # External API integration
+│   ├── location/         # Location services
+│   └── navigation/       # Navigation services
+├── state/                # State management
+│   ├── navigation/       # Navigation state
+│   ├── search/          # Search state
+│   └── weather/         # Weather state
+├── theme/               # Theme system
+├── utils/              # Utility functions
+└── widgets/           # Reusable UI components
+</code></pre>
+<h2 id="development-roadmap">Development Roadmap</h2>
+<h3 id="phase-1-mvp-current">Phase 1: MVP (Current)</h3>
+<ol>
+<li>
+<p><strong>Basic Navigation</strong></p>
+<ul>
+<li>Map display with location tracking</li>
+<li>Search and route display</li>
+<li>Turn-by-turn guidance</li>
+</ul>
+</li>
+<li>
+<p><strong>Weather Integration</strong></p>
+<ul>
+<li>Precipitation data overlay</li>
+<li>Basic weather animations</li>
+<li>Weather-aware routing</li>
+</ul>
+</li>
+</ol>
+<h3 id="phase-2-enhanced-features">Phase 2: Enhanced Features</h3>
+<ol>
+<li>
+<p><strong>Improved Error Handling</strong></p>
+<ul>
+<li>Error hierarchies</li>
+<li>User-friendly messages</li>
+<li>Better error recovery</li>
+</ul>
+</li>
+<li>
+<p><strong>State Management</strong></p>
+<ul>
+<li>Dependency injection</li>
+<li>Repository pattern</li>
+<li>Enhanced caching</li>
+</ul>
+</li>
+</ol>
+<h3 id="phase-3-advanced-features">Phase 3: Advanced Features</h3>
+<ol>
+<li>
+<p><strong>Group Features</strong></p>
+<ul>
+<li>Real-time coordination</li>
+<li>Shared waypoints</li>
+<li>Group messaging</li>
+</ul>
+</li>
+<li>
+<p><strong>Performance</strong></p>
+<ul>
+<li>Offline support</li>
+<li>Background updates</li>
+<li>Battery optimization</li>
+</ul>
+</li>
+</ol>
+<h3 id="completed-projects">Completed Projects</h3>
+<ul>
+<li>Initial branding and design</li>
+<li>Architecture planning</li>
+<li>Core dependency setup</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="for-developers">For Developers</h3>
+<ol>
+<li>Clone the repository:
+<pre class="language-bash"><code class="language-bash">git clone https://github.com/yourusername/rali.git
+</code></pre>
+</li>
+<li>Navigate to the project directory:
+<pre class="language-bash"><code class="language-bash">cd rali
+</code></pre>
+</li>
+<li>Install dependencies:
+<pre class="language-bash"><code class="language-bash">flutter pub get
+</code></pre>
+</li>
+</ol>
+<h3 id="for-users">For Users</h3>
+<p>Coming soon to Google Play and the Apple App Store!</p>
+<h2 id="license">License</h2>
+<p>All rights reserved. RALI is proprietary software intended for commercial use.</p>
+<h2 id="about-the-developer">About the Developer</h2>
+<p>I'm not a developer by trade, but I am a passionate car enthusiast with a vision for revolutionizing the way we experience group drives. I'm actively seeking partnerships with developers and entrepreneurs who share my passion for cars and driving. Being a true gearhead isn't just preferred—it's essential.</p>
+<h2 id="contact">Contact</h2>
+<p>For partnership inquiries or questions, reach out to <strong>Kendrick Kirk</strong> at <a href="mailto:kkirk@duck.com"></a><a href="mailto:kkirk@duck.com">kkirk@duck.com</a>.</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="app_config">
+  <span class="name"><a href="config_app_config/config_app_config-library.html">config/app_config</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="constants">
+  <span class="name"><a href="config_constants/config_constants-library.html">config/constants</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="environment">
+  <span class="name"><a href="config_environment/config_environment-library.html">config/environment</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="main">
+  <span class="name"><a href="main/main-library.html">main</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="map_screen">
+  <span class="name"><a href="screens_map_map_screen/screens_map_map_screen-library.html">screens/map/map_screen</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="mapbox_api">
+  <span class="name"><a href="services_api_mapbox_api/services_api_mapbox_api-library.html">services/api/mapbox_api</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="weather_api">
+  <span class="name"><a href="services_api_weather_api/services_api_weather_api-library.html">services/api/weather_api</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="location_service">
+  <span class="name"><a href="services_location_location_service/services_location_location_service-library.html">services/location/location_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="navigation_types">
+  <span class="name"><a href="services_navigation_navigation_types/services_navigation_navigation_types-library.html">services/navigation/navigation_types</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="route_details">
+  <span class="name"><a href="services_navigation_route_details/services_navigation_route_details-library.html">services/navigation/route_details</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="route_service">
+  <span class="name"><a href="services_navigation_route_service/services_navigation_route_service-library.html">services/navigation/route_service</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="search_service">
+  <span class="name"><a href="services_search_service/services_search_service-library.html">services/search_service</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="navigation_controller">
+  <span class="name"><a href="state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">state/navigation/navigation_controller</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="navigation_state">
+  <span class="name"><a href="state_navigation_navigation_state/state_navigation_navigation_state-library.html">state/navigation/navigation_state</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="navigation_types">
+  <span class="name"><a href="state_navigation_navigation_types/state_navigation_navigation_types-library.html">state/navigation/navigation_types</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="route_details">
+  <span class="name"><a href="state_navigation_route_details/state_navigation_route_details-library.html">state/navigation/route_details</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="search_controller">
+  <span class="name"><a href="state_search_search_controller/state_search_search_controller-library.html">state/search/search_controller</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="search_state">
+  <span class="name"><a href="state_search_search_state/state_search_search_state-library.html">state/search/search_state</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="weather_controller">
+  <span class="name"><a href="state_weather_weather_controller/state_weather_weather_controller-library.html">state/weather/weather_controller</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="weather_state">
+  <span class="name"><a href="state_weather_weather_state/state_weather_weather_state-library.html">state/weather/weather_state</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="rali_animations">
+  <span class="name"><a href="theme_rali_animations/theme_rali_animations-library.html">theme/rali_animations</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="rali_colors">
+  <span class="name"><a href="theme_rali_colors/theme_rali_colors-library.html">theme/rali_colors</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="rali_elevations">
+  <span class="name"><a href="theme_rali_elevations/theme_rali_elevations-library.html">theme/rali_elevations</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="rali_spacing">
+  <span class="name"><a href="theme_rali_spacing/theme_rali_spacing-library.html">theme/rali_spacing</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="rali_theme">
+  <span class="name"><a href="theme_rali_theme/theme_rali_theme-library.html">theme/rali_theme</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="rali_typography">
+  <span class="name"><a href="theme_rali_typography/theme_rali_typography-library.html">theme/rali_typography</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="map_utils">
+  <span class="name"><a href="utils_map_utils/utils_map_utils-library.html">utils/map_utils</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="control_button">
+  <span class="name"><a href="widgets_control_button/widgets_control_button-library.html">widgets/control_button</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="control_buttons_group">
+  <span class="name"><a href="widgets_control_buttons_group/widgets_control_buttons_group-library.html">widgets/control_buttons_group</a></span> 
+
+</dt>
+<dd>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+</dd>
+
+          <dt id="search_bar">
+  <span class="name"><a href="widgets_search_bar/widgets_search_bar-library.html">widgets/search_bar</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li class="self-crumb">rali package</li>
+</ol>
+
+    <h5 class="hidden-xs"><span class="package-name">rali</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="config_app_config/config_app_config-library.html">config/app_config</a></li>
+      <li><a href="config_constants/config_constants-library.html">config/constants</a></li>
+      <li><a href="config_environment/config_environment-library.html">config/environment</a></li>
+      <li><a href="main/main-library.html">main</a></li>
+      <li><a href="screens_map_map_screen/screens_map_map_screen-library.html">screens/map/map_screen</a></li>
+      <li><a href="services_api_mapbox_api/services_api_mapbox_api-library.html">services/api/mapbox_api</a></li>
+      <li><a href="services_api_weather_api/services_api_weather_api-library.html">services/api/weather_api</a></li>
+      <li><a href="services_location_location_service/services_location_location_service-library.html">services/location/location_service</a></li>
+      <li><a href="services_navigation_navigation_types/services_navigation_navigation_types-library.html">services/navigation/navigation_types</a></li>
+      <li><a href="services_navigation_route_details/services_navigation_route_details-library.html">services/navigation/route_details</a></li>
+      <li><a href="services_navigation_route_service/services_navigation_route_service-library.html">services/navigation/route_service</a></li>
+      <li><a href="services_search_service/services_search_service-library.html">services/search_service</a></li>
+      <li><a href="state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">state/navigation/navigation_controller</a></li>
+      <li><a href="state_navigation_navigation_state/state_navigation_navigation_state-library.html">state/navigation/navigation_state</a></li>
+      <li><a href="state_navigation_navigation_types/state_navigation_navigation_types-library.html">state/navigation/navigation_types</a></li>
+      <li><a href="state_navigation_route_details/state_navigation_route_details-library.html">state/navigation/route_details</a></li>
+      <li><a href="state_search_search_controller/state_search_search_controller-library.html">state/search/search_controller</a></li>
+      <li><a href="state_search_search_state/state_search_search_state-library.html">state/search/search_state</a></li>
+      <li><a href="state_weather_weather_controller/state_weather_weather_controller-library.html">state/weather/weather_controller</a></li>
+      <li><a href="state_weather_weather_state/state_weather_weather_state-library.html">state/weather/weather_state</a></li>
+      <li><a href="theme_rali_animations/theme_rali_animations-library.html">theme/rali_animations</a></li>
+      <li><a href="theme_rali_colors/theme_rali_colors-library.html">theme/rali_colors</a></li>
+      <li><a href="theme_rali_elevations/theme_rali_elevations-library.html">theme/rali_elevations</a></li>
+      <li><a href="theme_rali_spacing/theme_rali_spacing-library.html">theme/rali_spacing</a></li>
+      <li><a href="theme_rali_theme/theme_rali_theme-library.html">theme/rali_theme</a></li>
+      <li><a href="theme_rali_typography/theme_rali_typography-library.html">theme/rali_typography</a></li>
+      <li><a href="utils_map_utils/utils_map_utils-library.html">utils/map_utils</a></li>
+      <li><a href="widgets_control_button/widgets_control_button-library.html">widgets/control_button</a></li>
+      <li><a href="widgets_control_buttons_group/widgets_control_buttons_group-library.html">widgets/control_buttons_group</a></li>
+      <li><a href="widgets_search_bar/widgets_search_bar-library.html">widgets/search_bar</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+</main>
+<footer>
+  <span class="no-break">
+    rali
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
