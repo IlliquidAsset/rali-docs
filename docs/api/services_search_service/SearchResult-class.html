@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_search_service/services_search_service-library.html">services&#47;search_service.dart</a></li>
+    <li><a href="../services_search_service">services&#47;search_service.dart</a></li>
     <li class="self-crumb">SearchResult class</li>
   </ol>
   <div class="self-name">SearchResult</div>
@@ -56,6 +56,10 @@
 </h1></div>
 
     
+<section class="desc markdown">
+  <p>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////</p>
+</section>
 
 
 
@@ -64,16 +68,20 @@
     <h2>Constructors</h2>
     <dl class="constructor-summary-list">
         <dt id="SearchResult" class="callable">
-          <span class="name"><a href="../services_search_service/SearchResult/SearchResult.html">SearchResult</a></span><span class="signature">({<span class="parameter" id="-param-placeName"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">placeName</span>, </span><span class="parameter" id="-param-lng"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">lng</span>, </span><span class="parameter" id="-param-lat"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">lat</span></span>})</span>
+          <span class="name"><a href="../services_search_service/SearchResult/SearchResult.html">SearchResult</a></span><span class="signature">({<span class="parameter" id="-param-placeName"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">placeName</span>, </span><span class="parameter" id="-param-lng"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">lng</span>, </span><span class="parameter" id="-param-lat"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">lat</span>, </span><span class="parameter" id="-param-placeType"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">placeType</span> = <span class="default-value">&#39;unknown&#39;</span>, </span><span class="parameter" id="-param-addressComponents"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">addressComponents</span></span>})</span>
         </dt>
         <dd>
-          
+          ////////////
+////////////
+            <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="SearchResult.fromJson" class="callable">
           <span class="name"><a href="../services_search_service/SearchResult/SearchResult.fromJson.html">SearchResult.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          
+          ////////////
+////////////
+Creates a SearchResult from Mapbox Geocoding API JSON
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -84,6 +92,30 @@
       id="instance-properties">
     <h2>Properties</h2>
     <dl class="properties">
+        <dt id="addressComponents" class="property">
+  <span class="name"><a href="../services_search_service/SearchResult/addressComponents.html">addressComponents</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="formattedAddress" class="property">
+  <span class="name"><a href="../services_search_service/SearchResult/formattedAddress.html">formattedAddress</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Provides a formatted address
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
         <dt id="hashCode" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
@@ -127,6 +159,19 @@
 
 </dt>
 <dd>
+  ////////////
+////////////
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="placeType" class="property">
+  <span class="name"><a href="../services_search_service/SearchResult/placeType.html">placeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
   
   <div class="features"><span class="feature">final</span></div>
 
@@ -149,7 +194,7 @@
 
     
   <section
-      class="summary offset-anchor inherited"
+      class="summary offset-anchor"
       id="instance-methods">
     <h2>Methods</h2>
     <dl class="callables">
@@ -163,6 +208,19 @@
 <dd class="inherited">
   Invoked when a nonexistent method or property is accessed.
   <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toPosition" class="callable">
+  <span class="name"><a href="../services_search_service/SearchResult/toPosition.html">toPosition</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Convert to Position
+  
 
 </dd>
 
@@ -216,7 +274,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_search_service/services_search_service-library.html">search_service</a></li>
+    <li><a href="../services_search_service">search_service</a></li>
     <li class="self-crumb">SearchResult class</li>
 </ol>
 

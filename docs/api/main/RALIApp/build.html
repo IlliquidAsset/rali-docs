@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../main/main-library.html">main.dart</a></li>
+    <li><a href="../../main">main.dart</a></li>
     <li><a href="../../main/RALIApp-class.html">RALIApp</a></li>
     <li class="self-crumb">build method</li>
   </ol>
@@ -114,7 +114,7 @@ and</li>
 Widget build(BuildContext context) =&gt; MaterialApp(
   title: &#39;RALI&#39;,
   theme: RALITheme.lightTheme,
-  home: const MapScreen(),
+  home: MapScreen(env: env), &#47;&#47; Ensure MapScreen has an env parameter
 );</code></pre>
 </section>
 
@@ -129,7 +129,7 @@ Widget build(BuildContext context) =&gt; MaterialApp(
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../main/main-library.html">main</a></li>
+    <li><a href="../../main">main</a></li>
     <li><a href="../../main/RALIApp-class.html">RALIApp</a></li>
     <li class="self-crumb">build method</li>
 </ol>

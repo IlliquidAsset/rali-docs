@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">state&#47;navigation&#47;navigation_controller.dart</a></li>
+    <li><a href="../../state_navigation_navigation_controller">state&#47;navigation&#47;navigation_controller.dart</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">updateLocation method</li>
   </ol>
@@ -58,7 +58,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">updateLocation</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="updateLocation-param-newLocation"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">newLocation</span></span></li>
+<span class="name ">updateLocation</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="updateLocation-param-newLocation"><span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">newLocation</span></span></li>
 </ol>)
 
       
@@ -70,12 +70,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; updateLocation(Position newLocation) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; updateLocation(position_utils.RaliPosition newLocation) async {
   _currentLocation = newLocation;
-
-  if (_state == RALINavigationState.active) {
+  if (_state == NavigationStatus.active) {
     _updateProgress();
-    _checkReroute();
+    await _checkReroute(newLocation);
   }
 }</code></pre>
 </section>
@@ -91,7 +90,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">navigation_controller</a></li>
+    <li><a href="../../state_navigation_navigation_controller">navigation_controller</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">updateLocation method</li>
 </ol>

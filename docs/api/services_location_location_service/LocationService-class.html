@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_location_location_service/services_location_location_service-library.html">services&#47;location&#47;location_service.dart</a></li>
+    <li><a href="../services_location_location_service">services&#47;location&#47;location_service.dart</a></li>
     <li class="self-crumb">LocationService class</li>
   </ol>
   <div class="self-name">LocationService</div>
@@ -56,6 +56,10 @@
 </h1></div>
 
     
+<section class="desc markdown">
+  <p>/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////</p>
+</section>
 
 
 
@@ -110,6 +114,32 @@
       id="instance-methods">
     <h2>Methods</h2>
     <dl class="callables">
+        <dt id="calculateDistance" class="callable">
+  <span class="name"><a href="../services_location_location_service/LocationService/calculateDistance.html">calculateDistance</a></span><span class="signature">(<wbr><span class="parameter" id="calculateDistance-param-start"><span class="type-annotation"><a href="https://pub.dev/documentation/geolocator_platform_interface/4.2.4/geolocator_platform_interface/Position-class.html">Position</a></span> <span class="parameter-name">start</span>, </span><span class="parameter" id="calculateDistance-param-end"><span class="type-annotation"><a href="https://pub.dev/documentation/geolocator_platform_interface/4.2.4/geolocator_platform_interface/Position-class.html">Position</a></span> <span class="parameter-name">end</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Calculates the distance between two geographical points
+  
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="../services_location_location_service/LocationService/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Disposes of all location service resources
+  
+
+</dd>
+
         <dt id="getCurrentLocation" class="callable">
   <span class="name"><a href="../services_location_location_service/LocationService/getCurrentLocation.html">getCurrentLocation</a></span><span class="signature">(<wbr>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/geolocator_platform_interface/4.2.4/geolocator_platform_interface/Position-class.html">Position</a>?</span>&gt;</span></span>
@@ -118,7 +148,22 @@
 
 </dt>
 <dd>
+  ////////////
+////////////
+Retrieves the current location with comprehensive permission handling
   
+
+</dd>
+
+        <dt id="getCurrentSpeed" class="callable">
+  <span class="name"><a href="../services_location_location_service/LocationService/getCurrentSpeed.html">getCurrentSpeed</a></span><span class="signature">(<wbr><span class="parameter" id="getCurrentSpeed-param-position"><span class="type-annotation"><a href="https://pub.dev/documentation/geolocator_platform_interface/4.2.4/geolocator_platform_interface/Position-class.html">Position</a></span> <span class="parameter-name">position</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Estimates current speed from a position
   
 
 </dd>
@@ -131,7 +176,7 @@
 
 </dt>
 <dd>
-  
+  Provides a stream of location updates
   
 
 </dd>
@@ -146,6 +191,21 @@
 <dd class="inherited">
   Invoked when a nonexistent method or property is accessed.
   <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="stopLocationUpdates" class="callable">
+  <span class="name"><a href="../services_location_location_service/LocationService/stopLocationUpdates.html">stopLocationUpdates</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  ////////////
+////////////
+Stops location updates and releases resources
+  
 
 </dd>
 
@@ -199,7 +259,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_location_location_service/services_location_location_service-library.html">location_service</a></li>
+    <li><a href="../services_location_location_service">location_service</a></li>
     <li class="self-crumb">LocationService class</li>
 </ol>
 

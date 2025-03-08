@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_location_location_service/services_location_location_service-library.html">services&#47;location&#47;location_service.dart</a></li>
+    <li><a href="../../services_location_location_service">services&#47;location&#47;location_service.dart</a></li>
     <li><a href="../../services_location_location_service/LocationService-class.html">LocationService</a></li>
     <li class="self-crumb">getLocationStream method</li>
   </ol>
@@ -64,18 +64,38 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>Provides a stream of location updates</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Stream&lt;geo.Position&gt; getLocationStream() {
-  return geo.Geolocator.getPositionStream(
-    locationSettings: const geo.LocationSettings(
-      accuracy: geo.LocationAccuracy.high,
-      distanceFilter: 10,
+  &#47;&#47; Initialize stream if not already created
+  _locationStreamController ??= StreamController&lt;geo.Position&gt;.broadcast();
+
+  &#47;&#47; Start listening to position updates
+  _positionSubscription ??= geo.Geolocator.getPositionStream(
+    locationSettings: geo.LocationSettings(
+      accuracy: _locationAccuracy,
+      distanceFilter: _minimumDistance.toInt(), &#47;&#47; Minimum distance change to trigger update (meters)
+      timeLimit: _updateInterval,
     ),
+  ).listen(
+    (geo.Position position) {
+      _lastKnownLocation = position;
+      _locationStreamController?.add(position);
+    },
+    onError: (error) {
+      print(&#39;Location stream error: $error&#39;);
+      _locationStreamController?.addError(error);
+    },
+    cancelOnError: false,
   );
+
+  return _locationStreamController!.stream;
 }</code></pre>
 </section>
 
@@ -90,7 +110,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_location_location_service/services_location_location_service-library.html">location_service</a></li>
+    <li><a href="../../services_location_location_service">location_service</a></li>
     <li><a href="../../services_location_location_service/LocationService-class.html">LocationService</a></li>
     <li class="self-crumb">getLocationStream method</li>
 </ol>

@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_navigation_route_service/services_navigation_route_service-library.html">services&#47;navigation&#47;route_service.dart</a></li>
+    <li><a href="../services_navigation_route_service">services&#47;navigation&#47;route_service.dart</a></li>
     <li class="self-crumb">RouteService class</li>
   </ol>
   <div class="self-name">RouteService</div>
@@ -73,6 +73,7 @@
         <dd>
           ////////////
 ////////////
+            <div class="constructor-modifier features">const</div>
         </dd>
     </dl>
   </section>
@@ -129,7 +130,7 @@
     <h2>Methods</h2>
     <dl class="callables">
         <dt id="clearRoute" class="callable">
-  <span class="name"><a href="../services_navigation_route_service/RouteService/clearRoute.html">clearRoute</a></span><span class="signature">(<wbr><span class="parameter" id="clearRoute-param-map"><span class="type-annotation"><a href="https://pub.dev/documentation/mapbox_maps_flutter/2.5.0/mapbox_maps_flutter/MapboxMap-class.html">MapboxMap</a></span> <span class="parameter-name">map</span></span>)
+  <span class="name"><a href="../services_navigation_route_service/RouteService/clearRoute.html">clearRoute</a></span><span class="signature">(<wbr><span class="parameter" id="clearRoute-param-map"><span class="type-annotation"><a href="https://pub.dev/documentation/mapbox_maps_flutter/2.6.1/mapbox_maps_flutter/MapboxMap-class.html">MapboxMap</a></span> <span class="parameter-name">map</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -138,12 +139,13 @@
 <dd>
   ////////////
 ////////////
+Clears all route layers from the map
   
 
 </dd>
 
         <dt id="displayRoute" class="callable">
-  <span class="name"><a href="../services_navigation_route_service/RouteService/displayRoute.html">displayRoute</a></span><span class="signature">(<wbr><span class="parameter" id="displayRoute-param-map"><span class="type-annotation"><a href="https://pub.dev/documentation/mapbox_maps_flutter/2.5.0/mapbox_maps_flutter/MapboxMap-class.html">MapboxMap</a></span> <span class="parameter-name">map</span>, </span><span class="parameter" id="displayRoute-param-routeData"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">routeData</span>, {</span><span class="parameter" id="displayRoute-param-showAlternatives"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showAlternatives</span> = <span class="default-value">false</span>, </span><span class="parameter" id="displayRoute-param-emphasis"><span class="type-annotation"><a href="../services_navigation_navigation_types/RouteEmphasis.html">RouteEmphasis</a></span> <span class="parameter-name">emphasis</span> = <span class="default-value">RouteEmphasis.balanced</span></span>})
+  <span class="name"><a href="../services_navigation_route_service/RouteService/displayRoute.html">displayRoute</a></span><span class="signature">(<wbr><span class="parameter" id="displayRoute-param-map"><span class="type-annotation"><a href="https://pub.dev/documentation/mapbox_maps_flutter/2.6.1/mapbox_maps_flutter/MapboxMap-class.html">MapboxMap</a></span> <span class="parameter-name">map</span>, </span><span class="parameter" id="displayRoute-param-routeData"><span class="type-annotation"><a href="../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></span> <span class="parameter-name">routeData</span>, {</span><span class="parameter" id="displayRoute-param-showAlternatives"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showAlternatives</span> = <span class="default-value">false</span>, </span><span class="parameter" id="displayRoute-param-emphasis"><span class="type-annotation"><a href="../services_navigation_navigation_types/RouteEmphasis.html">RouteEmphasis</a></span> <span class="parameter-name">emphasis</span> = <span class="default-value">RouteEmphasis.balanced</span></span>})
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
@@ -152,13 +154,14 @@
 <dd>
   ////////////
 ////////////
+Displays the route on the provided MapboxMap
   
 
 </dd>
 
         <dt id="getRoute" class="callable">
-  <span class="name"><a href="../services_navigation_route_service/RouteService/getRoute.html">getRoute</a></span><span class="signature">(<wbr><span class="parameter" id="getRoute-param-start"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">start</span>, </span><span class="parameter" id="getRoute-param-destination"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">destination</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span></span>
+  <span class="name"><a href="../services_navigation_route_service/RouteService/getRoute.html">getRoute</a></span><span class="signature">(<wbr><span class="parameter" id="getRoute-param-start"><span class="type-annotation"><a href="../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">start</span>, </span><span class="parameter" id="getRoute-param-destination"><span class="type-annotation"><a href="../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">destination</span>, {</span><span class="parameter" id="getRoute-param-emphasis"><span class="type-annotation"><a href="../services_navigation_navigation_types/RouteEmphasis.html">RouteEmphasis</a></span> <span class="parameter-name">emphasis</span> = <span class="default-value">RouteEmphasis.balanced</span>, </span><span class="parameter" id="getRoute-param-mode"><span class="type-annotation"><a href="../services_navigation_navigation_types/RALINavigationMode.html">RALINavigationMode</a></span> <span class="parameter-name">mode</span> = <span class="default-value">RALINavigationMode.default_</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></span>&gt;</span></span>
   </span>
   
 
@@ -166,6 +169,7 @@
 <dd>
   ////////////
 ////////////
+Retrieves a route between two points with comprehensive options
   
 
 </dd>
@@ -233,7 +237,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_navigation_route_service/services_navigation_route_service-library.html">route_service</a></li>
+    <li><a href="../services_navigation_route_service">route_service</a></li>
     <li class="self-crumb">RouteService class</li>
 </ol>
 

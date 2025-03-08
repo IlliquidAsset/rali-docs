@@ -18,6 +18,14 @@ This is where the problem begins.
 ## Enter RALI: The All-in-One Driving Companion
 RALI doesn't just solve these problems—it redefines the driving experience. Built from the ground up with cutting-edge AI and real-time data integration, RALI is the ultimate tool for driving enthusiasts.
 
+## Screenshots
+
+![Android Demo](doc/img/android_demo.webm)
+[Android Demo (WebM)](doc/img/android_demo.webm)
+![Android Screenshot 1](doc/img/android01.png)
+![Android Screenshot 2](doc/img/android02.png)
+![Android Screenshot 3](doc/img/android03.png)
+
 ### What RALI Delivers
 1. **Dynamic Route Guidance:**
    - Real-time traffic updates ensure the Nashville group stays ahead of congestion.
@@ -31,6 +39,16 @@ RALI doesn't just solve these problems—it redefines the driving experience. Bu
 3. **Integrated Telemetry:**
    - Real-time data from OBD-II readers and phone accelerometers is displayed seamlessly.
    - Data is logged locally and online for post-drive analysis and group comparison.
+
+## Documentation
+### **Project Roadmap**
+- [Roadmap](docs/roadmap.md): Tracks development progress and upcoming features.
+
+### **Codebase Index**
+- [Code Index](docs/codeindex.md): Complete breakdown of modules and services.
+
+### **Consistency & Development Guide**
+- [Consistency Guide](docs/consistencyguide.md): Establishes standards for structure, imports, and error handling.
 
 ## Project Structure
 ```
@@ -90,30 +108,52 @@ lib/
 - Architecture planning
 - Core dependency setup
 
-## Installation
+## Installation & Setup
 
-### For Developers
+### **Prerequisites**
+- Flutter SDK
+- Dart
+- Mapbox API Key
+- OpenWeather API Key
+
+### **Setup Instructions**
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rali.git
-   ```
-2. Navigate to the project directory:
-   ```bash
+   ```sh
+   git clone https://github.com/IlliquidAsset/rali.git
    cd rali
    ```
-3. Install dependencies:
-   ```bash
+2. Install dependencies:
+   ```sh
    flutter pub get
    ```
+3. Configure environment variables in `.env` or set them dynamically.
+4. Run the application:
+   ```sh
+   flutter run
+   ```
 
-### For Users
-Coming soon to Google Play and the Apple App Store!
+## Features
+### **Navigation System**
+- **Dynamic Route Calculation** (RouteService)
+- **Real-Time Weather Overlays** (WeatherAPI)
+- **Custom Driving Modes** (NavigationTypes)
+
+### **Search & Geolocation**
+- **Place Search & Reverse Geocoding** (SearchService)
+- **Live Location Tracking** (LocationService)
+
+### **UI Components**
+- **Interactive Map Screen** (MapScreen)
+- **Search Bar Widget** (SearchBar)
+- **Control Buttons & Navigation Overlay** (ControlButtonsGroup, NavigationOverlay)
+
 
 ## License
-All rights reserved. RALI is proprietary software intended for commercial use.
+RALI is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## About the Developer
 I'm not a developer by trade, but I am a passionate car enthusiast with a vision for revolutionizing the way we experience group drives. I'm actively seeking partnerships with developers and entrepreneurs who share my passion for cars and driving. Being a true gearhead isn't just preferred—it's essential.
 
 ## Contact
 For partnership inquiries or questions, reach out to **Kendrick Kirk** at [kkirk@duck.com](mailto:kkirk@duck.com).
+

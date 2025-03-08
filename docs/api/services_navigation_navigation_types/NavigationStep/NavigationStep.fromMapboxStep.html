@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_navigation_types/services_navigation_navigation_types-library.html">services&#47;navigation&#47;navigation_types.dart</a></li>
+    <li><a href="../../services_navigation_navigation_types">services&#47;navigation&#47;navigation_types.dart</a></li>
     <li><a href="../../services_navigation_navigation_types/NavigationStep-class.html">NavigationStep</a></li>
     <li class="self-crumb">NavigationStep.fromMapboxStep factory constructor</li>
   </ol>
@@ -61,23 +61,59 @@
 </ol>)
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////
+Creates a NavigationStep from Mapbox API response with robust error handling</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">factory NavigationStep.fromMapboxStep(Map&lt;String, dynamic&gt; step) {
-  final location = step[&#39;maneuver&#39;][&#39;location&#39;] as List;
-  return NavigationStep(
-    instruction: step[&#39;maneuver&#39;][&#39;instruction&#39;] as String,
-    location: Position(
-      location[0] as double,
-      location[1] as double,
-    ),
-    distance: (step[&#39;distance&#39;] as num).toDouble(),
-    duration: (step[&#39;duration&#39;] as num).toDouble(),
-    maneuver: step[&#39;maneuver&#39;][&#39;type&#39;] as String,
-  );
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; III.C - Factory Methods
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Creates a NavigationStep from Mapbox API response with robust error handling
+factory NavigationStep.fromMapboxStep(Map&lt;String, dynamic&gt; step) {
+  try {
+    &#47;&#47; Safely extract maneuver data with null checks
+    final maneuver = step[&#39;maneuver&#39;] as Map&lt;String, dynamic&gt;? ?? {};
+
+    &#47;&#47; Safe location extraction with type conversion
+    final locationData = maneuver[&#39;location&#39;] as List? ?? [0.0, 0.0];
+
+    return NavigationStep(
+      &#47;&#47; Provide default values with null coalescing
+      instruction: (maneuver[&#39;instruction&#39;] as String?) ?? &#39;Continue&#39;,
+      location: position_utils.RaliPosition(
+        locationData.isNotEmpty ? (locationData[0] as num).toDouble() : 0.0,
+        locationData.length &gt; 1 ? (locationData[1] as num).toDouble() : 0.0
+      ),
+      &#47;&#47; Safely convert numeric values
+      distance: step[&#39;distance&#39;] != null
+        ? (step[&#39;distance&#39;] as num).toDouble()
+        : 0.0,
+      duration: step[&#39;duration&#39;] != null
+        ? (step[&#39;duration&#39;] as num).toDouble()
+        : 0.0,
+      maneuver: (maneuver[&#39;type&#39;] as String?) ?? &#39;straight&#39;,
+      roadName: step[&#39;name&#39;] as String?,
+      speedLimit: step[&#39;speedLimit&#39;] != null
+        ? (step[&#39;speedLimit&#39;] as num).toDouble()
+        : null,
+      trafficStatus: step[&#39;congestion&#39;] as String?,
+      hazardWarning: step[&#39;warning&#39;] as String?,
+    );
+  } catch (e) {
+    print(&#39;Error parsing navigation step: $e&#39;);
+    return NavigationStep(
+      instruction: &#39;Continue&#39;,
+      location: position_utils.RaliPosition(0.0, 0.0),
+      distance: 0.0,
+      duration: 0.0,
+      maneuver: &#39;straight&#39;,
+    );
+  }
 }</code></pre>
 </section>
 
@@ -92,7 +128,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_navigation_types/services_navigation_navigation_types-library.html">navigation_types</a></li>
+    <li><a href="../../services_navigation_navigation_types">navigation_types</a></li>
     <li><a href="../../services_navigation_navigation_types/NavigationStep-class.html">NavigationStep</a></li>
     <li class="self-crumb">NavigationStep.fromMapboxStep factory constructor</li>
 </ol>

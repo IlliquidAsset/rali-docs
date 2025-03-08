@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../widgets_control_buttons_group/widgets_control_buttons_group-library.html">widgets&#47;control_buttons_group.dart</a></li>
+    <li><a href="../../widgets_control_buttons_group">widgets&#47;control_buttons_group.dart</a></li>
     <li><a href="../../widgets_control_buttons_group/ControlButtonsGroup-class.html">ControlButtonsGroup</a></li>
     <li class="self-crumb">ControlButtonsGroup const constructor</li>
   </ol>
@@ -61,8 +61,11 @@
 <li><span class="parameter" id="-param-onWeatherToggle"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">onWeatherToggle</span>, </span></li>
 <li><span class="parameter" id="-param-weatherVisible"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">weatherVisible</span>, </span></li>
 <li><span class="parameter" id="-param-onLocationPressed"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">onLocationPressed</span>, </span></li>
-<li><span class="parameter" id="-param-onMenuPressed"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">onMenuPressed</span>, </span></li>
+<li><span class="parameter" id="-param-onSettingsPressed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onSettingsPressed</span>, </span></li>
+<li><span class="parameter" id="-param-currentMode"><span class="type-annotation"><a href="../../services_navigation_navigation_types/RALINavigationMode.html">RALINavigationMode</a></span> <span class="parameter-name">currentMode</span> = <span class="default-value">RALINavigationMode.default_</span>, </span></li>
 <li><span class="parameter" id="-param-isNavigating"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isNavigating</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-weatherIntensity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">weatherIntensity</span>, </span></li>
+<li><span class="parameter" id="-param-trafficVisible"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">trafficVisible</span>, </span></li>
 </ol>})
     </section>
     
@@ -82,8 +85,11 @@ const ControlButtonsGroup({
   required this.onWeatherToggle,
   required this.weatherVisible,
   required this.onLocationPressed,
-  required this.onMenuPressed,
+  this.onSettingsPressed,
+  this.currentMode = RALINavigationMode.default_,
   this.isNavigating = false,
+  this.weatherIntensity,
+  this.trafficVisible,
 });</code></pre>
 </section>
 
@@ -98,7 +104,7 @@ const ControlButtonsGroup({
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../widgets_control_buttons_group/widgets_control_buttons_group-library.html">control_buttons_group</a></li>
+    <li><a href="../../widgets_control_buttons_group">control_buttons_group</a></li>
     <li><a href="../../widgets_control_buttons_group/ControlButtonsGroup-class.html">ControlButtonsGroup</a></li>
     <li class="self-crumb">ControlButtonsGroup const constructor</li>
 </ol>

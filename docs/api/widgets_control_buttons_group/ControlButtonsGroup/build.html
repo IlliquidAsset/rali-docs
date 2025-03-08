@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../widgets_control_buttons_group/widgets_control_buttons_group-library.html">widgets&#47;control_buttons_group.dart</a></li>
+    <li><a href="../../widgets_control_buttons_group">widgets&#47;control_buttons_group.dart</a></li>
     <li><a href="../../widgets_control_buttons_group/ControlButtonsGroup-class.html">ControlButtonsGroup</a></li>
     <li class="self-crumb">build method</li>
   </ol>
@@ -86,24 +86,44 @@ Widget build(BuildContext context) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
+      &#47;&#47; Weather Toggle Button
       ControlButton(
         onTap: onWeatherToggle,
         isActive: weatherVisible,
-        child: Icon(weatherVisible ? Icons.cloud : Icons.cloud_outlined),
+        child: Stack(
+          children: [
+            Icon(weatherVisible ? Icons.cloud : Icons.cloud_outlined),
+            if (weatherIntensity != null &amp;&amp; weatherIntensity! &gt; 0.5)
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: Container(
+                  width: 8,
+                  height: 8,
+                  decoration: const BoxDecoration(
+                    color: RALIColors.primary,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
-      SizedBox(height: RALISpacing.mapControlGap),
+      const SizedBox(height: RALISpacing.mapControlGap),
+
+      &#47;&#47; Center-On-Location Button
       ControlButton(
         onTap: onLocationPressed,
         child: const Icon(Icons.my_location),
       ),
-      SizedBox(height: RALISpacing.mapControlGap),
-      ControlButton(
-        onTap: onMenuPressed,
-        child: Padding(
-          padding: RALIEdgeInsets.allXs,
-          child: Image.asset(&#39;logo-300px.png&#39;, fit: BoxFit.contain),
+      const SizedBox(height: RALISpacing.mapControlGap),
+
+      &#47;&#47; Settings Button (if available)
+      if (onSettingsPressed != null)
+        ControlButton(
+          onTap: onSettingsPressed!,
+          child: const Icon(Icons.settings),
         ),
-      ),
     ],
   );
 }</code></pre>
@@ -120,7 +140,7 @@ Widget build(BuildContext context) {
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../widgets_control_buttons_group/widgets_control_buttons_group-library.html">control_buttons_group</a></li>
+    <li><a href="../../widgets_control_buttons_group">control_buttons_group</a></li>
     <li><a href="../../widgets_control_buttons_group/ControlButtonsGroup-class.html">ControlButtonsGroup</a></li>
     <li class="self-crumb">build method</li>
 </ol>

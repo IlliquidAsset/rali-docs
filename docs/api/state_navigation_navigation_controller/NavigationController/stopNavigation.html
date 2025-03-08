@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">state&#47;navigation&#47;navigation_controller.dart</a></li>
+    <li><a href="../../state_navigation_navigation_controller">state&#47;navigation&#47;navigation_controller.dart</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">stopNavigation method</li>
   </ol>
@@ -70,10 +70,12 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; stopNavigation() async {
-  _state = RALINavigationState.inactive;
+  _state = NavigationStatus.inactive;
   _currentRoute = null;
   _destination = null;
   _progress = 0.0;
+  _isRerouting = false;
+  _lastRerouteAttempt = null;
   notifyListeners();
 }</code></pre>
 </section>
@@ -89,7 +91,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">navigation_controller</a></li>
+    <li><a href="../../state_navigation_navigation_controller">navigation_controller</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">stopNavigation method</li>
 </ol>

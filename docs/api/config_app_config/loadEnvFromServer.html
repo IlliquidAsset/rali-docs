@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../config_app_config/config_app_config-library.html">config&#47;app_config.dart</a></li>
+    <li><a href="../config_app_config">config&#47;app_config.dart</a></li>
     <li class="self-crumb">loadEnvFromServer function</li>
   </ol>
   <div class="self-name">loadEnvFromServer</div>
@@ -76,7 +76,7 @@
   <pre class="language-dart"><code class="language-dart">&#47;&#47; II. ENVIRONMENT CONFIGURATION
 &#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
 Future&lt;Map&lt;String, String&gt;&gt; loadEnvFromServer() async {
-  final response = await http.get(Uri.parse(&#39;https:&#47;&#47;dev.kendrickcreates.com&#47;rali&#47;env.json&#39;));
+  final response = await http.get(Uri.parse(&#39;http:&#47;&#47;104.190.135.7&#47;rali&#47;env.json&#39;));
   if (response.statusCode == 200) {
     return Map&lt;String, String&gt;.from(json.decode(response.body));
   }
@@ -95,7 +95,7 @@ Future&lt;Map&lt;String, String&gt;&gt; loadEnvFromServer() async {
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../config_app_config/config_app_config-library.html">app_config</a></li>
+    <li><a href="../config_app_config">app_config</a></li>
     <li class="self-crumb">loadEnvFromServer function</li>
 </ol>
 

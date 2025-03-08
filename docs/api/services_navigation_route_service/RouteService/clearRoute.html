@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_route_service/services_navigation_route_service-library.html">services&#47;navigation&#47;route_service.dart</a></li>
+    <li><a href="../../services_navigation_route_service">services&#47;navigation&#47;route_service.dart</a></li>
     <li><a href="../../services_navigation_route_service/RouteService-class.html">RouteService</a></li>
     <li class="self-crumb">clearRoute method</li>
   </ol>
@@ -58,7 +58,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">clearRoute</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="clearRoute-param-map"><span class="type-annotation"><a href="https://pub.dev/documentation/mapbox_maps_flutter/2.5.0/mapbox_maps_flutter/MapboxMap-class.html">MapboxMap</a></span> <span class="parameter-name">map</span></span></li>
+<span class="name ">clearRoute</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="clearRoute-param-map"><span class="type-annotation"><a href="https://pub.dev/documentation/mapbox_maps_flutter/2.6.1/mapbox_maps_flutter/MapboxMap-class.html">MapboxMap</a></span> <span class="parameter-name">map</span></span></li>
 </ol>)
 
       
@@ -67,36 +67,24 @@
     
 <section class="desc markdown">
   <p>////////////
-////////////</p>
+////////////
+Clears all route layers from the map</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.F - Route Clearing Methods
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.E - Utility Methods
 &#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Clears all route layers from the map
 Future&lt;void&gt; clearRoute(MapboxMap map) async {
   try {
-    &#47;&#47; Clear main route
     await map.style.removeStyleLayer(&quot;route-layer&quot;);
     await map.style.removeStyleSource(&quot;route-source&quot;);
-
-    &#47;&#47; Clear any alternative routes
-    var i = 1;
-    while (true) {
-      final layerId = &#39;route-alt-$i&#39;;
-      final sourceId = &#39;alt-$i&#39;;
-      try {
-        await map.style.removeStyleLayer(layerId);
-        await map.style.removeStyleSource(sourceId);
-        i++;
-      } catch (e) {
-        break; &#47;&#47; No more alternative routes
-      }
-    }
   } catch (e) {
-    &#47;&#47; Ignore if layers don&#39;t exist
+    &#47;&#47; Ignore errors if layers don&#39;t exist
+    print(&#39;Error clearing route: $e&#39;);
   }
 }</code></pre>
 </section>
@@ -112,7 +100,7 @@ Future&lt;void&gt; clearRoute(MapboxMap map) async {
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_route_service/services_navigation_route_service-library.html">route_service</a></li>
+    <li><a href="../../services_navigation_route_service">route_service</a></li>
     <li><a href="../../services_navigation_route_service/RouteService-class.html">RouteService</a></li>
     <li class="self-crumb">clearRoute method</li>
 </ol>

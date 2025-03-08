@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_route_service/services_navigation_route_service-library.html">services&#47;navigation&#47;route_service.dart</a></li>
+    <li><a href="../../services_navigation_route_service">services&#47;navigation&#47;route_service.dart</a></li>
     <li><a href="../../services_navigation_route_service/RouteService-class.html">RouteService</a></li>
     <li class="self-crumb">getRoute method</li>
   </ol>
@@ -57,10 +57,12 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span></span>
-<span class="name ">getRoute</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getRoute-param-start"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">start</span>, </span></li>
-<li><span class="parameter" id="getRoute-param-destination"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">destination</span></span></li>
-</ol>)
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></span>&gt;</span></span>
+<span class="name ">getRoute</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getRoute-param-start"><span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">start</span>, </span></li>
+<li><span class="parameter" id="getRoute-param-destination"><span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">destination</span>, {</span></li>
+<li><span class="parameter" id="getRoute-param-emphasis"><span class="type-annotation"><a href="../../services_navigation_navigation_types/RouteEmphasis.html">RouteEmphasis</a></span> <span class="parameter-name">emphasis</span> = <span class="default-value">RouteEmphasis.balanced</span>, </span></li>
+<li><span class="parameter" id="getRoute-param-mode"><span class="type-annotation"><a href="../../services_navigation_navigation_types/RALINavigationMode.html">RALINavigationMode</a></span> <span class="parameter-name">mode</span> = <span class="default-value">RALINavigationMode.default_</span>, </span></li>
+</ol>})
 
       
 
@@ -68,30 +70,45 @@
     
 <section class="desc markdown">
   <p>////////////
-////////////</p>
+////////////
+Retrieves a route between two points with comprehensive options</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.C - Route Methods
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.C - Route Retrieval Methods
 &#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
-Future&lt;Map&lt;String, dynamic&gt;&gt; getRoute(Position start, Position destination) async {
-  final url = Uri.https(_baseUrl, &#39;$_routePath&#47;${start.lng},${start.lat};${destination.lng},${destination.lat}&#39;, {
-    &#39;alternatives&#39;: &#39;true&#39;,
-    &#39;geometries&#39;: &#39;geojson&#39;,
-    &#39;overview&#39;: &#39;full&#39;,
-    &#39;steps&#39;: &#39;true&#39;,
-    &#39;access_token&#39;: accessToken,
-    &#39;annotations&#39;: &#39;maxspeed,congestion,closure&#39;
-  });
+&#47;&#47;&#47; Retrieves a route between two points with comprehensive options
+Future&lt;RouteDetails&gt; getRoute(
+  position_utils.RaliPosition start,
+  position_utils.RaliPosition destination, {
+  RouteEmphasis emphasis = RouteEmphasis.balanced,
+  RALINavigationMode mode = RALINavigationMode.default_,
+}) async {
+  try {
+    final url = Uri.https(_baseUrl, &#39;$_routePath&#47;${start.lng},${start.lat};${destination.lng},${destination.lat}&#39;, {
+      &#39;alternatives&#39;: &#39;true&#39;,
+      &#39;geometries&#39;: &#39;geojson&#39;,
+      &#39;overview&#39;: &#39;full&#39;,
+      &#39;steps&#39;: &#39;true&#39;,
+      &#39;access_token&#39;: accessToken,
+      &#39;annotations&#39;: _getAnnotationsForMode(mode),
+    });
 
-  final response = await http.get(url);
-  if (response.statusCode == 200) {
-    return json.decode(response.body);
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final routeData = json.decode(response.body);
+      return RouteDetails.fromMapboxRoute(routeData);
+    } else {
+      throw HttpException(&#39;Failed to retrieve route: ${response.statusCode}&#39;);
+    }
+  } catch (e) {
+    print(&#39;Route retrieval error: $e&#39;);
+    rethrow;
   }
-  throw Exception(&#39;Failed to get route: ${response.statusCode}&#39;);
 }</code></pre>
 </section>
 
@@ -106,7 +123,7 @@ Future&lt;Map&lt;String, dynamic&gt;&gt; getRoute(Position start, Position desti
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_route_service/services_navigation_route_service-library.html">route_service</a></li>
+    <li><a href="../../services_navigation_route_service">route_service</a></li>
     <li><a href="../../services_navigation_route_service/RouteService-class.html">RouteService</a></li>
     <li class="self-crumb">getRoute method</li>
 </ol>

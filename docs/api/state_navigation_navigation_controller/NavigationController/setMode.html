@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">state&#47;navigation&#47;navigation_controller.dart</a></li>
+    <li><a href="../../state_navigation_navigation_controller">state&#47;navigation&#47;navigation_controller.dart</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">setMode method</li>
   </ol>
@@ -58,7 +58,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype">void</span>
-<span class="name ">setMode</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setMode-param-newMode"><span class="type-annotation">dynamic</span> <span class="parameter-name">newMode</span></span></li>
+<span class="name ">setMode</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="setMode-param-newMode"><span class="type-annotation"><a href="../../services_navigation_navigation_types/RALINavigationMode.html">RALINavigationMode</a></span> <span class="parameter-name">newMode</span></span></li>
 </ol>)
 
       
@@ -77,8 +77,10 @@
   <pre class="language-dart"><code class="language-dart">&#47;&#47; II.D - Mode Management
 &#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
 void setMode(RALINavigationMode newMode) {
-  _mode = newMode;
-  notifyListeners();
+  if (_mode != newMode) {
+    _mode = newMode;
+    notifyListeners();
+  }
 }</code></pre>
 </section>
 
@@ -93,7 +95,7 @@ void setMode(RALINavigationMode newMode) {
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">navigation_controller</a></li>
+    <li><a href="../../state_navigation_navigation_controller">navigation_controller</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">setMode method</li>
 </ol>

@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_navigation_navigation_types/services_navigation_navigation_types-library.html">services&#47;navigation&#47;navigation_types.dart</a></li>
+    <li><a href="../services_navigation_navigation_types">services&#47;navigation&#47;navigation_types.dart</a></li>
     <li class="self-crumb">NavigationStep class</li>
   </ol>
   <div class="self-name">NavigationStep</div>
@@ -68,17 +68,20 @@
     <h2>Constructors</h2>
     <dl class="constructor-summary-list">
         <dt id="NavigationStep" class="callable">
-          <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/NavigationStep.html">NavigationStep</a></span><span class="signature">({<span class="parameter" id="-param-instruction"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">instruction</span>, </span><span class="parameter" id="-param-location"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">location</span>, </span><span class="parameter" id="-param-distance"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">distance</span>, </span><span class="parameter" id="-param-duration"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="-param-maneuver"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">maneuver</span></span>})</span>
+          <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/NavigationStep.html">NavigationStep</a></span><span class="signature">({<span class="parameter" id="-param-instruction"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">instruction</span>, </span><span class="parameter" id="-param-location"><span>required</span> <span class="type-annotation"><a href="../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">location</span>, </span><span class="parameter" id="-param-distance"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">distance</span>, </span><span class="parameter" id="-param-duration"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">duration</span>, </span><span class="parameter" id="-param-maneuver"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">maneuver</span>, </span><span class="parameter" id="-param-roadName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">roadName</span>, </span><span class="parameter" id="-param-speedLimit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">speedLimit</span>, </span><span class="parameter" id="-param-trafficStatus"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">trafficStatus</span>, </span><span class="parameter" id="-param-hazardWarning"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hazardWarning</span></span>})</span>
         </dt>
         <dd>
-          
+          ////////////
+////////////
             <div class="constructor-modifier features">const</div>
         </dd>
         <dt id="NavigationStep.fromMapboxStep" class="callable">
           <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/NavigationStep.fromMapboxStep.html">NavigationStep.fromMapboxStep</a></span><span class="signature">(<span class="parameter" id="fromMapboxStep-param-step"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">step</span></span>)</span>
         </dt>
         <dd>
-          
+          ////////////
+////////////
+Creates a NavigationStep from Mapbox API response with robust error handling
             <div class="constructor-modifier features">factory</div>
         </dd>
     </dl>
@@ -125,9 +128,9 @@
 
 </dd>
 
-        <dt id="instruction" class="property">
-  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/instruction.html">instruction</a></span>
-  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+        <dt id="hazardWarning" class="property">
+  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/hazardWarning.html">hazardWarning</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
   
 
 </dt>
@@ -137,9 +140,22 @@
 
 </dd>
 
+        <dt id="instruction" class="property">
+  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/instruction.html">instruction</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  ////////////
+////////////
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
         <dt id="location" class="property">
   <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/location.html">location</a></span>
-  <span class="signature">&#8594; <a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span>
+  <span class="signature">&#8594; <a href="../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span>
   
 
 </dt>
@@ -161,6 +177,18 @@
 
 </dd>
 
+        <dt id="roadName" class="property">
+  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/roadName.html">roadName</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
         <dt id="runtimeType" class="property inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
@@ -173,15 +201,54 @@
 
 </dd>
 
+        <dt id="speedLimit" class="property">
+  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/speedLimit.html">speedLimit</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="trafficStatus" class="property">
+  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/trafficStatus.html">trafficStatus</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
     </dl>
   </section>
 
     
   <section
-      class="summary offset-anchor inherited"
+      class="summary offset-anchor"
       id="instance-methods">
     <h2>Methods</h2>
     <dl class="callables">
+        <dt id="getDetailedInstruction" class="callable">
+  <span class="name"><a href="../services_navigation_navigation_types/NavigationStep/getDetailedInstruction.html">getDetailedInstruction</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  ////////////
+////////////
+Provides a human-readable description of the navigation step
+  
+
+</dd>
+
         <dt id="noSuchMethod" class="callable inherited">
   <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
     <span class="returntype parameter">&#8594; dynamic</span>
@@ -245,7 +312,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../index.html">rali</a></li>
-    <li><a href="../services_navigation_navigation_types/services_navigation_navigation_types-library.html">navigation_types</a></li>
+    <li><a href="../services_navigation_navigation_types">navigation_types</a></li>
     <li class="self-crumb">NavigationStep class</li>
 </ol>
 

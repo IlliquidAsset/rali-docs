@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_location_location_service/services_location_location_service-library.html">services&#47;location&#47;location_service.dart</a></li>
+    <li><a href="../../services_location_location_service">services&#47;location&#47;location_service.dart</a></li>
     <li><a href="../../services_location_location_service/LocationService-class.html">LocationService</a></li>
     <li class="self-crumb">getCurrentLocation method</li>
   </ol>
@@ -64,27 +64,41 @@
 
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////
+Retrieves the current location with comprehensive permission handling</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;geo.Position?&gt; getCurrentLocation() async {
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.B - Location Retrieval Methods
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Retrieves the current location with comprehensive permission handling
+Future&lt;geo.Position?&gt; getCurrentLocation() async {
   try {
-    var permission = await geo.Geolocator.checkPermission();
-    if (permission == geo.LocationPermission.denied) {
-      permission = await geo.Geolocator.requestPermission();
+    &#47;&#47; Check and request location permissions
+    geo.LocationPermission permission = await _checkAndRequestPermission();
+
+    &#47;&#47; Verify permission is granted
+    if (permission == geo.LocationPermission.denied ||
+        permission == geo.LocationPermission.deniedForever) {
+      print(&#39;Location permissions are denied&#39;);
+      return null;
     }
-    if (permission != geo.LocationPermission.denied) {
-      return await geo.Geolocator.getCurrentPosition(
-        locationSettings: const geo.LocationSettings(
-          accuracy: geo.LocationAccuracy.high,
-        ),
-      );
-    }
-    return null;
+
+    &#47;&#47; Get current position with high accuracy
+    final position = await geo.Geolocator.getCurrentPosition(
+      desiredAccuracy: _locationAccuracy,
+      timeLimit: const Duration(seconds: 10),
+    );
+
+    _lastKnownLocation = position;
+    return position;
   } catch (e) {
-    print(&#39;Error getting location: $e&#39;);
+    print(&#39;Error obtaining current location: $e&#39;);
     return null;
   }
 }</code></pre>
@@ -101,7 +115,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_location_location_service/services_location_location_service-library.html">location_service</a></li>
+    <li><a href="../../services_location_location_service">location_service</a></li>
     <li><a href="../../services_location_location_service/LocationService-class.html">LocationService</a></li>
     <li class="self-crumb">getCurrentLocation method</li>
 </ol>

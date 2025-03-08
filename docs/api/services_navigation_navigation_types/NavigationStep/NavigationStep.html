@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_navigation_types/services_navigation_navigation_types-library.html">services&#47;navigation&#47;navigation_types.dart</a></li>
+    <li><a href="../../services_navigation_navigation_types">services&#47;navigation&#47;navigation_types.dart</a></li>
     <li><a href="../../services_navigation_navigation_types/NavigationStep-class.html">NavigationStep</a></li>
     <li class="self-crumb">NavigationStep const constructor</li>
   </ol>
@@ -58,24 +58,38 @@
     <section class="multi-line-signature">
       const
       <span class="name ">NavigationStep</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="-param-instruction"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">instruction</span>, </span></li>
-<li><span class="parameter" id="-param-location"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">location</span>, </span></li>
+<li><span class="parameter" id="-param-location"><span>required</span> <span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">location</span>, </span></li>
 <li><span class="parameter" id="-param-distance"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">distance</span>, </span></li>
 <li><span class="parameter" id="-param-duration"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">duration</span>, </span></li>
 <li><span class="parameter" id="-param-maneuver"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">maneuver</span>, </span></li>
+<li><span class="parameter" id="-param-roadName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">roadName</span>, </span></li>
+<li><span class="parameter" id="-param-speedLimit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">speedLimit</span>, </span></li>
+<li><span class="parameter" id="-param-trafficStatus"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">trafficStatus</span>, </span></li>
+<li><span class="parameter" id="-param-hazardWarning"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hazardWarning</span>, </span></li>
 </ol>})
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const NavigationStep({
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; III.B - Constructor
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+const NavigationStep({
   required this.instruction,
   required this.location,
   required this.distance,
   required this.duration,
   required this.maneuver,
+  this.roadName,
+  this.speedLimit,
+  this.trafficStatus,
+  this.hazardWarning,
 });</code></pre>
 </section>
 
@@ -90,7 +104,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_navigation_types/services_navigation_navigation_types-library.html">navigation_types</a></li>
+    <li><a href="../../services_navigation_navigation_types">navigation_types</a></li>
     <li><a href="../../services_navigation_navigation_types/NavigationStep-class.html">NavigationStep</a></li>
     <li class="self-crumb">NavigationStep const constructor</li>
 </ol>

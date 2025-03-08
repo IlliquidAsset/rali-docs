@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../widgets_search_bar/widgets_search_bar-library.html">widgets&#47;search_bar.dart</a></li>
+    <li><a href="../../widgets_search_bar">widgets&#47;search_bar.dart</a></li>
     <li><a href="../../widgets_search_bar/SearchBar-class.html">SearchBar</a></li>
     <li class="self-crumb">SearchBar const constructor</li>
   </ol>
@@ -64,21 +64,29 @@
 <li><span class="parameter" id="-param-showClearButton"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showClearButton</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="-param-onClear"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onClear</span>, </span></li>
 <li><span class="parameter" id="-param-controller"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/TextEditingController-class.html">TextEditingController</a>?</span> <span class="parameter-name">controller</span>, </span></li>
+<li><span class="parameter" id="-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span></li>
 </ol>})
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const SearchBar({
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.B - Constructor
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+const SearchBar({
   super.key,
   required this.searchService,
   required this.onResultSelected,
   this.showClearButton = false,
   this.onClear,
   this.controller,
+  this.height,
 });</code></pre>
 </section>
 
@@ -93,7 +101,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../widgets_search_bar/widgets_search_bar-library.html">search_bar</a></li>
+    <li><a href="../../widgets_search_bar">search_bar</a></li>
     <li><a href="../../widgets_search_bar/SearchBar-class.html">SearchBar</a></li>
     <li class="self-crumb">SearchBar const constructor</li>
 </ol>

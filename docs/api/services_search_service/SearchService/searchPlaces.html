@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_search_service/services_search_service-library.html">services&#47;search_service.dart</a></li>
+    <li><a href="../../services_search_service">services&#47;search_service.dart</a></li>
     <li><a href="../../services_search_service/SearchService-class.html">SearchService</a></li>
     <li class="self-crumb">searchPlaces method</li>
   </ol>
@@ -58,36 +58,74 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../services_search_service/SearchResult-class.html">SearchResult</a></span>&gt;</span></span>&gt;</span></span>
-<span class="name ">searchPlaces</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="searchPlaces-param-query"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">query</span></span></li>
-</ol>)
+<span class="name ">searchPlaces</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="searchPlaces-param-query"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">query</span>, {</span></li>
+<li><span class="parameter" id="searchPlaces-param-limit"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">limit</span> = <span class="default-value">5</span>, </span></li>
+<li><span class="parameter" id="searchPlaces-param-proximity"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a>?</span> <span class="parameter-name">proximity</span>, </span></li>
+<li><span class="parameter" id="searchPlaces-param-types"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">types</span> = <span class="default-value">const [&#39;address&#39;, &#39;poi&#39;, &#39;place&#39;]</span>, </span></li>
+</ol>})
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////
+Searches for places based on a query</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;SearchResult&gt;&gt; searchPlaces(String query) async {
-  if (query.isEmpty) return [];
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; III.C - Search Methods
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Searches for places based on a query
+Future&lt;List&lt;SearchResult&gt;&gt; searchPlaces(
+  String query, {
+  int limit = 5,
+  Position? proximity,
+  List&lt;String&gt; types = const [&#39;address&#39;, &#39;poi&#39;, &#39;place&#39;],
+}) async {
+  if (query.trim().isEmpty) return [];
 
-  final url = Uri.parse(
-    &#39;https:&#47;&#47;api.mapbox.com&#47;geocoding&#47;v5&#47;mapbox.places&#47;$query.json&#39;
-    &#39;?access_token=$accessToken&#39;
-    &#39;&amp;types=place,address&#39;
-    &#39;&amp;limit=5&#39;
-  );
+  try {
+    final queryParams = {
+      &#39;access_token&#39;: accessToken,
+      &#39;limit&#39;: limit.toString(),
+      &#39;types&#39;: types.join(&#39;,&#39;),
+      if (proximity != null) &#39;proximity&#39;: &#39;${proximity.lng},${proximity.lat}&#39;,
+    };
 
-  final response = await http.get(url);
+    final url = Uri.https(
+      _baseUrl,
+      &#39;$_geocodingPath&#47;${Uri.encodeComponent(query)}.json&#39;,
+      queryParams,
+    );
 
-  if (response.statusCode == 200) {
-    final data = json.decode(response.body);
-    final features = data[&#39;features&#39;] as List;
-    return features.map((feature) =&gt; SearchResult.fromJson(feature)).toList();
-  } else {
-    throw Exception(&#39;Failed to search places&#39;);
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
+      final features = jsonData[&#39;features&#39;] as List;
+
+      return features
+        .map((feature) {
+          try {
+            return SearchResult.fromJson(feature);
+          } catch (e) {
+            print(&#39;Error parsing individual search result: $e&#39;);
+            return null;
+          }
+        })
+        .whereType&lt;SearchResult&gt;()
+        .toList();
+    } else {
+      throw HttpException(&#39;Failed to search places: ${response.statusCode}&#39;);
+    }
+  } catch (e) {
+    print(&#39;Search service error: $e&#39;);
+    rethrow;
   }
 }</code></pre>
 </section>
@@ -103,7 +141,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_search_service/services_search_service-library.html">search_service</a></li>
+    <li><a href="../../services_search_service">search_service</a></li>
     <li><a href="../../services_search_service/SearchService-class.html">SearchService</a></li>
     <li class="self-crumb">searchPlaces method</li>
 </ol>

@@ -2,48 +2,98 @@
 
 ## **1. Custom Classes & State Management**
 - **`state/navigation/navigation_controller.dart`** - Manages navigation state.
+  - **Class:** `NavigationController`
+  - **Variables:** `currentRoute`, `destination`, `isNavigating`, `isRerouting`, `mode`, `progress`
+  - **Methods:** `planRoute()`, `setMode()`, `startNavigation()`, `stopNavigation()`, `updateLocation()`
+
 - **`state/navigation/navigation_types.dart`** - Defines core navigation types and modes.
+  - **Enums:** `RouteEmphasis`, `RALINavigationMode`
+
 - **`state/navigation/navigation_state.dart`** - Tracks navigation status.
-- **`state/navigation/ral_navigation_state.dart`** - Contains state definitions for navigation modes.
+  - **Class:** `RALINavigationState`
+  - **Variables:** `status`, `progress`, `remainingDistance`, `mode`, `isNavigating`, `destination`
+  - **Methods:** `copyWith()`
+
 - **`state/weather/weather_state.dart`** - Manages weather state.
+  - **Class:** `WeatherState`
+  - **Variables:** `currentWeather`, `isLoading`, `errorMessage`
+  - **Methods:** `fetchWeather()`
+
 - **`state/search/search_state.dart`** - Manages search bar state.
+  - **Class:** `SearchState`
+  - **Variables:** `query`, `results`, `isSearching`
+  - **Methods:** `clearSearch()`, `startSearching()`, `updateResults()`
+
 - **`state/search/search_controller.dart`** - Handles search logic.
+  - **Class:** `SearchController`
+  - **Methods:** `performSearch()`
+
 - **`state/weather/weather_controller.dart`** - Manages weather overlays.
-- **`state/navigation/route_details.dart`** - Holds route details.
+  - **Class:** `WeatherController`
+  - **Variables:** `weatherApi`, `weatherState`
+  - **Methods:** `updateWeather()`
 
 ## **2. Services & APIs**
-- **`services/navigation/route_service.dart`** - Handles route calculations.
-- **`services/navigation/navigation_types.dart`** - Defines navigation-related types.
+- **`services/navigation/route_service.dart`** - Handles route calculations and Mapbox API requests.
+  - **Class:** `RouteService`
+  - **Methods:** `getRoute()`, `displayRoute()`, `clearRoute()`
+
+- **`services/navigation/navigation_types.dart`** - Defines navigation-related types and enums.
+  - **Enums:** `RouteEmphasis`, `RALINavigationMode`
+
 - **`services/navigation/route_details.dart`** - Stores detailed route metadata.
-- **`services/api/mapbox_api.dart`** - Manages Mapbox API interactions.
+  - **Class:** `RouteDetails`
+  - **Variables:** `points`, `distance`, `duration`, `steps`, `bounds`
+  - **Methods:** `fromMapboxRoute()`, `getEstimatedArrival()`, `getDistanceInKilometers()`
+
 - **`services/api/weather_api.dart`** - Handles weather data retrieval.
+  - **Class:** `WeatherApi`
+  - **Methods:** `getCurrentPrecipitation()`, `getCurrentWeather()`, `getHourlyForecast()`
+
 - **`services/search_service.dart`** - Implements place search functionality.
-- **`services/location/location_service.dart`** - Fetches user location.
+  - **Class:** `SearchService`
+  - **Methods:** `searchPlaces()`, `reverseGeocode()`
 
 ## **3. Theme & UI Components**
 - **`theme/rali_typography.dart`** - Defines typography styles.
+  - **Class:** `RALITextTheme`
+  - **Variables:** `textTheme`
+
 - **`theme/rali_colors.dart`** - Stores color constants.
-- **`theme/rali_spacing.dart`** - Manages spacing and layout.
-- **`theme/rali_elevations.dart`** - Configures elevation/shadow effects.
-- **`theme/rali_theme.dart`** - Central theme management.
+  - **Class:** `RALIColors`
+  - **Variables:** `primary`, `secondary`, `error`, `success`, `background`
+
 - **`theme/rali_animations.dart`** - Standardized animations.
+  - **Class:** `RALIAnimationCurve`
+  - **Variables:** `accelerate`, `decelerate`, `standard`
 
 ## **4. Widgets & Controls**
 - **`widgets/control_button.dart`** - Standard button component.
-- **`widgets/control_buttons_group.dart`** - Grouped control buttons.
+  - **Class:** `ControlButton`
+  - **Variables:** `child`, `isActive`, `onTap`
+  - **Methods:** `build()`
+
 - **`widgets/search_bar.dart`** - Search bar UI component.
-- **`widgets/navigation_overlay.dart`** - Displays navigation route overview and controls.
+  - **Class:** `SearchBar`
+  - **Variables:** `controller`, `searchService`, `showClearButton`
+  - **Methods:** `createState()`
 
 ## **5. Configuration & Utilities**
 - **`config/app_config.dart`** - Loads environment configurations.
-- **`config/constants.dart`** - Stores app-wide constants.
-- **`config/environment.dart`** - Manages environment settings.
+  - **Methods:** `loadEnvFromServer()`
+
 - **`utils/map_utils.dart`** - Helper functions for Mapbox interactions.
+  - **Class:** `MapUtils`
+  - **Methods:** `createCameraPosition()`, `createLocationMarker()`
+
+- **`utils/position_utils.dart`** - Provides coordinate conversions.
+  - **Class:** `RaliPosition`
+  - **Variables:** `lat`, `lng`
+  - **Methods:** `bearingTo()`, `distanceTo()`, `toMapboxPoint()`
 
 ## **Next Steps**
-- Ensure all referenced files exist and match their expected functionality.
-- Consider expanding `dartdoc` comments for more detailed documentation.
-- If hosting docs, configure GitHub Pages to serve `/docs/`.
-- Standardize class names across all modules for consistency.
-- Verify that `RALINavigationState`, `RALINavigationMode`, and `RouteDetails` are correctly referenced and implemented.
+- Verify all classes, variables, and methods are implemented correctly.
+- Expand Dart documentation within files.
+- Standardize class and function names across all modules.
 
+2025.03.06

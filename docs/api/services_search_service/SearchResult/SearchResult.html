@@ -25,9 +25,9 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_search_service/services_search_service-library.html">services&#47;search_service.dart</a></li>
+    <li><a href="../../services_search_service">services&#47;search_service.dart</a></li>
     <li><a href="../../services_search_service/SearchResult-class.html">SearchResult</a></li>
-    <li class="self-crumb">SearchResult constructor</li>
+    <li class="self-crumb">SearchResult const constructor</li>
   </ol>
   <div class="self-name">SearchResult</div>
   <form class="search navbar-right" role="search">
@@ -56,22 +56,32 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      
+      const
       <span class="name ">SearchResult</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="-param-placeName"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">placeName</span>, </span></li>
 <li><span class="parameter" id="-param-lng"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">lng</span>, </span></li>
 <li><span class="parameter" id="-param-lat"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">lat</span>, </span></li>
+<li><span class="parameter" id="-param-placeType"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">placeType</span> = <span class="default-value">&#39;unknown&#39;</span>, </span></li>
+<li><span class="parameter" id="-param-addressComponents"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">addressComponents</span>, </span></li>
 </ol>})
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">SearchResult({
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.B - Constructor
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+const SearchResult({
   required this.placeName,
   required this.lng,
-  required this.lat
+  required this.lat,
+  this.placeType = &#39;unknown&#39;,
+  this.addressComponents,
 });</code></pre>
 </section>
 
@@ -86,9 +96,9 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_search_service/services_search_service-library.html">search_service</a></li>
+    <li><a href="../../services_search_service">search_service</a></li>
     <li><a href="../../services_search_service/SearchResult-class.html">SearchResult</a></li>
-    <li class="self-crumb">SearchResult constructor</li>
+    <li class="self-crumb">SearchResult const constructor</li>
 </ol>
 
     <h5>SearchResult class</h5>

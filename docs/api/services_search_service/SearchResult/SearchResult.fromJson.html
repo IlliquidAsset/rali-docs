@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_search_service/services_search_service-library.html">services&#47;search_service.dart</a></li>
+    <li><a href="../../services_search_service">services&#47;search_service.dart</a></li>
     <li><a href="../../services_search_service/SearchResult-class.html">SearchResult</a></li>
     <li class="self-crumb">SearchResult.fromJson factory constructor</li>
   </ol>
@@ -61,18 +61,40 @@
 </ol>)
     </section>
     
+<section class="desc markdown">
+  <p>////////////
+////////////
+Creates a SearchResult from Mapbox Geocoding API JSON</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">factory SearchResult.fromJson(Map&lt;String, dynamic&gt; json) {
-  final coordinates = json[&#39;center&#39;] as List;
-  return SearchResult(
-    placeName: json[&#39;place_name&#39;] as String,
-    lng: coordinates[0] as double,
-    lat: coordinates[1] as double,
-  );
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.C - Factory Methods
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Creates a SearchResult from Mapbox Geocoding API JSON
+factory SearchResult.fromJson(Map&lt;String, dynamic&gt; json) {
+  try {
+    final coordinates = json[&#39;center&#39;] as List;
+
+    return SearchResult(
+      placeName: (json[&#39;place_name&#39;] as String?) ?? &#39;Unknown Location&#39;,
+      lng: (coordinates[0] as num).toDouble(),
+      lat: (coordinates[1] as num).toDouble(),
+      placeType: ((json[&#39;types&#39;] as List?)?.isNotEmpty == true
+        ? json[&#39;types&#39;][0]
+        : &#39;unknown&#39;) as String,
+      addressComponents: _parseAddressComponents(json),
+    );
+  } catch (e) {
+    print(&#39;Error parsing search result: $e&#39;);
+    return SearchResult(
+      placeName: &#39;Error Location&#39;,
+      lng: 0.0,
+      lat: 0.0,
+    );
+  }
 }</code></pre>
 </section>
 
@@ -87,7 +109,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_search_service/services_search_service-library.html">search_service</a></li>
+    <li><a href="../../services_search_service">search_service</a></li>
     <li><a href="../../services_search_service/SearchResult-class.html">SearchResult</a></li>
     <li class="self-crumb">SearchResult.fromJson factory constructor</li>
 </ol>

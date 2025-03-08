@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">state&#47;navigation&#47;navigation_controller.dart</a></li>
+    <li><a href="../../state_navigation_navigation_controller">state&#47;navigation&#47;navigation_controller.dart</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">planRoute method</li>
   </ol>
@@ -58,7 +58,8 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">planRoute</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="planRoute-param-destination"><span class="type-annotation"><a href="https://pub.dev/documentation/geotypes/0.0.2/geotypes/Position-class.html">Position</a></span> <span class="parameter-name">destination</span></span></li>
+<span class="name ">planRoute</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="planRoute-param-destination"><span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">destination</span>, </span></li>
+<li><span class="parameter" id="planRoute-param-routeDetails"><span class="type-annotation"><a href="../../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></span> <span class="parameter-name">routeDetails</span></span></li>
 </ol>)
 
       
@@ -76,9 +77,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">&#47;&#47; II.C - Core Navigation Methods
 &#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
-Future&lt;void&gt; planRoute(Position destination) async {
+Future&lt;void&gt; planRoute(position_utils.RaliPosition destination, RouteDetails routeDetails) async {
   _destination = destination;
-  _state = RALINavigationState.routePlanned;
+  _currentRoute = routeDetails;
+  _state = NavigationStatus.routePlanned;
+  _progress = 0.0;
   notifyListeners();
 }</code></pre>
 </section>
@@ -94,7 +97,7 @@ Future&lt;void&gt; planRoute(Position destination) async {
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../state_navigation_navigation_controller/state_navigation_navigation_controller-library.html">navigation_controller</a></li>
+    <li><a href="../../state_navigation_navigation_controller">navigation_controller</a></li>
     <li><a href="../../state_navigation_navigation_controller/NavigationController-class.html">NavigationController</a></li>
     <li class="self-crumb">planRoute method</li>
 </ol>

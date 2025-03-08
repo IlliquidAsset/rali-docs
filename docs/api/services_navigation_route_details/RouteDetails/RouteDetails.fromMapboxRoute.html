@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_route_details/services_navigation_route_details-library.html">services&#47;navigation&#47;route_details.dart</a></li>
+    <li><a href="../../services_navigation_route_details">services&#47;navigation&#47;route_details.dart</a></li>
     <li><a href="../../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></li>
     <li class="self-crumb">RouteDetails.fromMapboxRoute factory constructor</li>
   </ol>
@@ -63,7 +63,8 @@
     
 <section class="desc markdown">
   <p>////////////
-////////////</p>
+////////////
+Builds RouteDetails from Mapbox route data with robust parsing</p>
 </section>
 
 
@@ -72,42 +73,78 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">&#47;&#47; II.C - Factory Methods
 &#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Builds RouteDetails from Mapbox route data with robust parsing
 factory RouteDetails.fromMapboxRoute(Map&lt;String, dynamic&gt; routeData) {
-  final route = routeData[&#39;routes&#39;][0];
-  final geometry = route[&#39;geometry&#39;];
-  final coordinates = geometry[&#39;coordinates&#39;] as List;
-  final leg = route[&#39;legs&#39;][0];
+  try {
+    &#47;&#47; Safely extract the first route
+    final route = (routeData[&#39;routes&#39;] as List?)?.isNotEmpty == true
+      ? routeData[&#39;routes&#39;][0]
+      : throw StateError(&#39;No routes found in response&#39;);
 
-  &#47;&#47; Parse steps
-  final steps = (leg[&#39;steps&#39;] as List)
-      .map((step) =&gt; NavigationStep.fromMapboxStep(step))
-      .toList();
+    &#47;&#47; Parse geometry with error handling
+    final geometry = route[&#39;geometry&#39;] ?? {};
+    final coordinates = geometry[&#39;coordinates&#39;] as List? ?? [];
 
-  &#47;&#47; Calculate bounds
-  double minLng = coordinates[0][0], maxLng = coordinates[0][0];
-  double minLat = coordinates[0][1], maxLat = coordinates[0][1];
-  for (var coord in coordinates) {
-    minLng = (coord[0] as double) &lt; minLng ? coord[0] : minLng;
-    maxLng = (coord[0] as double) &gt; maxLng ? coord[0] : maxLng;
-    minLat = (coord[1] as double) &lt; minLat ? coord[1] : minLat;
-    maxLat = (coord[1] as double) &gt; maxLat ? coord[1] : maxLat;
+    &#47;&#47; Parse route points with type conversion
+    final points = coordinates.map((coord) {
+      if (coord is List &amp;&amp; coord.length &gt;= 2) {
+        return position_utils.RaliPosition(
+          (coord[0] as num).toDouble(),
+          (coord[1] as num).toDouble()
+        );
+      }
+      throw FormatException(&#39;Invalid coordinate format&#39;);
+    }).toList();
+
+    &#47;&#47; Parse first leg for steps and metadata
+    final leg = (route[&#39;legs&#39;] as List?)?.isNotEmpty == true
+      ? route[&#39;legs&#39;][0]
+      : throw StateError(&#39;No route legs found&#39;);
+
+    &#47;&#47; Parse navigation steps with error handling
+    final steps = (leg[&#39;steps&#39;] as List?)?.map((step) {
+      try {
+        return NavigationStep.fromMapboxStep(step);
+      } catch (e) {
+        print(&#39;Error parsing navigation step: $e&#39;);
+        return null;
+      }
+    }).whereType&lt;NavigationStep&gt;().toList() ?? [];
+
+    &#47;&#47; Parse additional data
+    final speedLimits = _parseSpeedLimits(route[&#39;maxspeed&#39;] as List?);
+    final hazards = _parseHazards(route[&#39;hazards&#39;] as List?);
+    final landmarks = _parseLandmarks(route[&#39;landmarks&#39;] as Map&lt;String, dynamic&gt;?);
+
+    &#47;&#47; Calculate bounding box
+    final bounds = _calculateBounds(points);
+
+    return RouteDetails(
+      points: points,
+      distance: _safeConvertToDouble(leg[&#39;distance&#39;], 0.0),
+      duration: _safeConvertToDouble(leg[&#39;duration&#39;], 0.0),
+      steps: steps,
+      bounds: bounds,
+      trafficAnnotations: route[&#39;annotations&#39;],
+      speedLimits: speedLimits,
+      hazards: hazards,
+      landmarks: landmarks,
+    );
+  } catch (e) {
+    print(&#39;Error parsing route details: $e&#39;);
+
+    &#47;&#47; Fallback to default route details
+    return RouteDetails(
+      points: [],
+      distance: 0.0,
+      duration: 0.0,
+      steps: [],
+      bounds: BoundingBox(
+        southwest: position_utils.RaliPosition(0.0, 0.0),
+        northeast: position_utils.RaliPosition(0.0, 0.0)
+      ),
+    );
   }
-
-  final bounds = BoundingBox(
-    southwest: Position(minLng, minLat),
-    northeast: Position(maxLng, maxLat),
-  );
-
-  return RouteDetails(
-    points: coordinates.map((coord) =&gt; Position(
-      coord[0] as double,
-      coord[1] as double,
-    )).toList(),
-    distance: leg[&#39;distance&#39;] as double,
-    duration: leg[&#39;duration&#39;] as double,
-    steps: steps,
-    bounds: bounds,
-  );
 }</code></pre>
 </section>
 
@@ -122,7 +159,7 @@ factory RouteDetails.fromMapboxRoute(Map&lt;String, dynamic&gt; routeData) {
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">rali</a></li>
-    <li><a href="../../services_navigation_route_details/services_navigation_route_details-library.html">route_details</a></li>
+    <li><a href="../../services_navigation_route_details">route_details</a></li>
     <li><a href="../../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></li>
     <li class="self-crumb">RouteDetails.fromMapboxRoute factory constructor</li>
 </ol>
