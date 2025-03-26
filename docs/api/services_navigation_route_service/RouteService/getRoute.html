@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getRoute method from the RouteService class, for the Dart programming language.">
+  <title>getRoute method - RouteService class - route_service library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">rali</a></li>
+    <li><a href="../../services_navigation_route_service">services&#47;navigation&#47;route_service.dart</a></li>
+    <li><a href="../../services_navigation_route_service/RouteService-class.html">RouteService</a></li>
+    <li class="self-crumb">getRoute method</li>
+  </ol>
+  <div class="self-name">getRoute</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="services_navigation_route_service&#47;RouteService-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getRoute</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../services_navigation_route_details/RouteDetails-class.html">RouteDetails</a></span>&gt;</span></span>
+<span class="name ">getRoute</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getRoute-param-start"><span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">start</span>, </span></li>
+<li><span class="parameter" id="getRoute-param-destination"><span class="type-annotation"><a href="../../utils_position_utils/RaliPosition-class.html">RaliPosition</a></span> <span class="parameter-name">destination</span>, {</span></li>
+<li><span class="parameter" id="getRoute-param-emphasis"><span class="type-annotation"><a href="../../services_navigation_navigation_types/RouteEmphasis.html">RouteEmphasis</a></span> <span class="parameter-name">emphasis</span> = <span class="default-value">RouteEmphasis.balanced</span>, </span></li>
+<li><span class="parameter" id="getRoute-param-mode"><span class="type-annotation"><a href="../../services_navigation_navigation_types/RALINavigationMode.html">RALINavigationMode</a></span> <span class="parameter-name">mode</span> = <span class="default-value">RALINavigationMode.default_</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>////////////
+////////////
+Retrieves a route between two points with comprehensive options</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">&#47;&#47; II.C - Route Retrieval Methods
+&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;&#47;
+&#47;&#47;&#47; Retrieves a route between two points with comprehensive options
+Future&lt;RouteDetails&gt; getRoute(
+  position_utils.RaliPosition start,
+  position_utils.RaliPosition destination, {
+  RouteEmphasis emphasis = RouteEmphasis.balanced,
+  RALINavigationMode mode = RALINavigationMode.default_,
+}) async {
+  try {
+    final url = Uri.https(_baseUrl, &#39;$_routePath&#47;${start.lng},${start.lat};${destination.lng},${destination.lat}&#39;, {
+      &#39;alternatives&#39;: &#39;true&#39;,
+      &#39;geometries&#39;: &#39;geojson&#39;,
+      &#39;overview&#39;: &#39;full&#39;,
+      &#39;steps&#39;: &#39;true&#39;,
+      &#39;access_token&#39;: accessToken,
+      &#39;annotations&#39;: _getAnnotationsForMode(mode),
+    });
+
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final routeData = json.decode(response.body);
+      return RouteDetails.fromMapboxRoute(routeData);
+    } else {
+      throw HttpException(&#39;Failed to retrieve route: ${response.statusCode}&#39;);
+    }
+  } catch (e) {
+    print(&#39;Route retrieval error: $e&#39;);
+    rethrow;
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">rali</a></li>
+    <li><a href="../../services_navigation_route_service">route_service</a></li>
+    <li><a href="../../services_navigation_route_service/RouteService-class.html">RouteService</a></li>
+    <li class="self-crumb">getRoute method</li>
+</ol>
+
+    <h5>RouteService class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    rali
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
